@@ -38,16 +38,13 @@ class Themes {
   static ThemeData theme = ThemeData(
   fontFamily: "Lato-Regular",
     primaryColor: MyColors.primaryColor,
-    primarySwatch: Colors.red,
     scaffoldBackgroundColor: MyColors.scaffoldBackgroundColor,
-    backgroundColor: MyColors.backgroundColor,
     iconTheme: const IconThemeData(
       color: MyColors.iconsColor,
     ),
     appBarTheme: const AppBarTheme(
       elevation: 0.0,
       color: MyColors.primaryColor,
-      backwardsCompatibility: false,
       centerTitle: false,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: MyColors.primaryColor,
@@ -69,6 +66,6 @@ class Themes {
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       elevation: MySizes.elevation,
-    ),
+    ), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red).copyWith(background: MyColors.backgroundColor),
   );
 }
