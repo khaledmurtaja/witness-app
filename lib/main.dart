@@ -56,15 +56,17 @@ void main() async {
   });
   Widget? page;
   final user = CacheHelper.getData(key: "user");
-  if (user != null) {
-    final data = LoginResponse.fromJson(json.decode(user));
-    setUser(user: data);
-    setToken(token: data.token!);
-    setUserId(id: "${data.user!.id}");
-    page = const MainLayout();
-  }
-  if (user == null && permissionsGranted) page = RegisterPage();
-  if (!permissionsGranted) page = const AllowAccessPage();
+  page=const MainLayout(); /// !!!temp line[it will be changed]
+  ///passby login unitl server works
+  // if (user != null) {
+  //   final data = LoginResponse.fromJson(json.decode(user));
+  //   setUser(user: data);
+  //   setToken(token: data.token!);
+  //   setUserId(id: "${data.user!.id}");
+  //   page = const MainLayout();
+  // }
+  // if (user == null && permissionsGranted) page = RegisterPage();
+  // if (!permissionsGranted) page = const AllowAccessPage();
 
   BlocOverrides.runZoned(() {
     runApp(Witness(page: page!));
